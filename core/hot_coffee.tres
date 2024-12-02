@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://dc6sl007o64w"]
+
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_cdw6g"]
+[ext_resource type="Texture2D" uid="uid://cdjfo2h17138f" path="res://third_party_assets/Cards/hot_coffee.png" id="1_orlg8"]
+
+[resource]
+script = ExtResource("1_cdw6g")
+display_name = "Café com o chefe"
+stress_gain = -40.0
+productivity_gain = -30.0
+image = ExtResource("1_orlg8")

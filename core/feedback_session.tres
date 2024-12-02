@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://bouwxpxkxdtnq"]
+
+[ext_resource type="Texture2D" uid="uid://cwt5fm4fno8i6" path="res://third_party_assets/Cards/feedback_session.png" id="1_86twv"]
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_ajtjo"]
+
+[resource]
+script = ExtResource("1_ajtjo")
+display_name = "Sessão de Feedback"
+stress_gain = -15.0
+productivity_gain = 20.0
+image = ExtResource("1_86twv")

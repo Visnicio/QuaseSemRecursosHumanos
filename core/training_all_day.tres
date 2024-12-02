@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://cvooy8dks8nt6"]
+
+[ext_resource type="Texture2D" uid="uid://bk6lm4enu86l1" path="res://third_party_assets/Cards/training.png" id="1_868ct"]
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_ehcsh"]
+
+[resource]
+script = ExtResource("1_ehcsh")
+display_name = "Treinamento o dia todo"
+stress_gain = 40.0
+productivity_gain = -10.0
+image = ExtResource("1_868ct")

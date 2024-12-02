@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://c6e4wooxms6ak"]
+
+[ext_resource type="Texture2D" uid="uid://cnx3sdtk2dsf1" path="res://third_party_assets/Cards/contigency.png" id="1_8m7it"]
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_k03qt"]
+
+[resource]
+script = ExtResource("1_k03qt")
+display_name = "Plano de Contigência"
+stress_gain = 50.0
+productivity_gain = 50.0
+image = ExtResource("1_8m7it")

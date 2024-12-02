@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://w2a33h5mwkut"]
+
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_64xfh"]
+[ext_resource type="Texture2D" uid="uid://bsn3ciw68wlfo" path="res://third_party_assets/Cards/extra_hour.png" id="1_ms2yt"]
+
+[resource]
+script = ExtResource("1_64xfh")
+display_name = "Hora Extra"
+stress_gain = 60.0
+productivity_gain = 40.0
+image = ExtResource("1_ms2yt")

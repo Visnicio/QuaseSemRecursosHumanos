@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dia44lutqromc"]
+
+[ext_resource type="Script" path="res://scenes/tutorial/introduction.gd" id="1_sgeys"]
+[ext_resource type="Texture2D" uid="uid://byk2vadafrrt4" path="res://third_party_assets/Cards/speaker.png" id="2_giiwy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oriun"]
+bg_color = Color(0.0625, 0.0625, 0.0625, 1)
+
+[node name="Introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sgeys")
+speed = 0.8
+
+[node name="DialogPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oriun")
+
+[node name="Dialog" type="Label" parent="DialogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -254.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "lorem impadioahdiaushdaiudhsaidasdhasd asuidhadhuiahdui adiuahudai asd uhaisdhaid auidhaiusd ha iuasdh uiah"
+autowrap_mode = 3
+
+[node name="SkipTutorial" type="Label" parent="DialogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 128.0
+offset_right = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Clique para pular"
+autowrap_mode = 3
+
+[node name="Speaker" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -470.0
+offset_top = -1056.0
+offset_right = 320.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(344, 824)
+texture = ExtResource("2_giiwy")

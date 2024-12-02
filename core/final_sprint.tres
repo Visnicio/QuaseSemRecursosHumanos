@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://ds2non2ripj3d"]
+
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_2xh6v"]
+[ext_resource type="Texture2D" uid="uid://cag2j2ffmcgeu" path="res://third_party_assets/Cards/last_sprint.png" id="1_vgvo0"]
+
+[resource]
+script = ExtResource("1_2xh6v")
+display_name = "Sprint Final"
+stress_gain = 20.0
+productivity_gain = 20.0
+image = ExtResource("1_vgvo0")

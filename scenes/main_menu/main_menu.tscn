@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1qiernijy51e"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ajtnw"]
+[ext_resource type="Shader" path="res://background.gdshader" id="2_igrww"]
+[ext_resource type="FontFile" uid="uid://dr55g4t25clw1" path="res://assets/Plump_Prose_Round.ttf" id="2_sx6ug"]
+[ext_resource type="Shader" path="res://crt.gdshader" id="3_emsc2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hp04"]
+shader = ExtResource("2_igrww")
+shader_parameter/color = Color(0.136255, 0.21, 0.1071, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_16ac6"]
+shader = ExtResource("3_emsc2")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.09
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.646
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ajtnw")
+
+[node name="SolidBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.177758, 0.273438, 0.138855, 1)
+metadata/_edit_lock_ = true
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_2hp04")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.177758, 0.273438, 0.138855, 1)
+metadata/_edit_lock_ = true
+
+[node name="CRTShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_16ac6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 256.0
+offset_right = 712.0
+offset_bottom = 312.0
+text = "Jogar"
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 240.0
+theme_override_fonts/normal_font = ExtResource("2_sx6ug")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave][center]Quase sem 
+Recursos Humanos[center][wave]"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,0 +1,226 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5pgee25w2dip"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_kwhbf"]
+[ext_resource type="Texture2D" uid="uid://c0abl6ptp2x3n" path="res://third_party_assets/Cards/john.png" id="2_8tfej"]
+[ext_resource type="Shader" path="res://background.gdshader" id="2_60mfu"]
+[ext_resource type="PackedScene" uid="uid://bed88653jg2ty" path="res://scenes/employee/employee.tscn" id="2_pwh4j"]
+[ext_resource type="Texture2D" uid="uid://cawutfd6tlol5" path="res://third_party_assets/Cards/ana.png" id="3_6ho07"]
+[ext_resource type="Shader" path="res://crt.gdshader" id="3_jws6h"]
+[ext_resource type="Texture2D" uid="uid://c57msqpunldlq" path="res://third_party_assets/Cards/maya.png" id="4_tlhh6"]
+[ext_resource type="Texture2D" uid="uid://d2l4dv2mtqetd" path="res://third_party_assets/Cards/jukes.png" id="4_uamhn"]
+[ext_resource type="Texture2D" uid="uid://pflvtbl2a03h" path="res://third_party_assets/Cards/carl.png" id="6_1dya2"]
+[ext_resource type="Texture2D" uid="uid://b7l12iue12kpo" path="res://third_party_assets/Cards/Cardback_02_02.png" id="8_tsm5j"]
+[ext_resource type="PackedScene" uid="uid://dia44lutqromc" path="res://scenes/tutorial/introduction.tscn" id="11_t1xbi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v7is"]
+shader = ExtResource("2_60mfu")
+shader_parameter/color = Color(0.136255, 0.21, 0.1071, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kr04n"]
+shader = ExtResource("3_jws6h")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.09
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.646
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_kwhbf")
+metadata/_edit_vertical_guides_ = [640.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SolidBackground" type="ColorRect" parent="CanvasLayer/MainUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.177758, 0.273438, 0.138855, 1)
+metadata/_edit_lock_ = true
+
+[node name="Shader" type="ColorRect" parent="CanvasLayer/MainUI"]
+material = SubResource("ShaderMaterial_6v7is")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.177758, 0.273438, 0.138855, 1)
+metadata/_edit_lock_ = true
+
+[node name="CRTShader" type="ColorRect" parent="CanvasLayer/MainUI"]
+visible = false
+material = SubResource("ShaderMaterial_kr04n")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Ana" parent="CanvasLayer/MainUI" instance=ExtResource("2_pwh4j")]
+position = Vector2(192, 64)
+image = ExtResource("3_6ho07")
+employee_name = "Ana"
+start_stress = 20.0
+start_productivity = 20.0
+
+[node name="John" parent="CanvasLayer/MainUI" instance=ExtResource("2_pwh4j")]
+position = Vector2(384, 64)
+image = ExtResource("2_8tfej")
+employee_name = "John"
+start_stress = 60.0
+start_productivity = 10.0
+
+[node name="Austin" parent="CanvasLayer/MainUI" instance=ExtResource("2_pwh4j")]
+position = Vector2(576, 64)
+image = ExtResource("4_tlhh6")
+employee_name = "Austin"
+start_stress = 10.0
+start_productivity = 15.0
+
+[node name="Jukes" parent="CanvasLayer/MainUI" instance=ExtResource("2_pwh4j")]
+position = Vector2(768, 64)
+image = ExtResource("4_uamhn")
+employee_name = "Jukes"
+start_stress = 50.0
+start_productivity = 70.0
+
+[node name="Carl" parent="CanvasLayer/MainUI" instance=ExtResource("2_pwh4j")]
+position = Vector2(960, 64)
+image = ExtResource("6_1dya2")
+employee_name = "Carl"
+start_stress = 10.0
+start_productivity = 30.0
+
+[node name="Drawer" type="Control" parent="CanvasLayer/MainUI"]
+layout_mode = 1
+anchor_left = 0.806299
+anchor_top = 0.8
+anchor_right = 0.907087
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainUI/Drawer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_tsm5j")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MainUI/Drawer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_tsm5j")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/MainUI/Drawer" groups=["drawer"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_tsm5j")
+
+[node name="CardsLeft" type="Label" parent="CanvasLayer/MainUI/Drawer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -44.0
+offset_right = 36.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 64
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndDay" type="Button" parent="CanvasLayer/MainUI"]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 480.0
+offset_right = 1144.0
+offset_bottom = 511.0
+text = "Finalizar Dia"
+
+[node name="EndTurn" type="Button" parent="CanvasLayer/MainUI"]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 520.0
+offset_right = 1152.0
+offset_bottom = 551.0
+text = "Finalizar Turno
+"
+
+[node name="CardPos1" type="Marker2D" parent="CanvasLayer/MainUI" groups=["card_positions"]]
+position = Vector2(384, 528)
+
+[node name="CardPos2" type="Marker2D" parent="CanvasLayer/MainUI" groups=["card_positions"]]
+position = Vector2(576, 512)
+
+[node name="CardPos3" type="Marker2D" parent="CanvasLayer/MainUI" groups=["card_positions"]]
+position = Vector2(768, 528)
+
+[node name="CurrentDayDisplay" type="RichTextLabel" parent="CanvasLayer/MainUI"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 16.0
+offset_right = 736.0
+offset_bottom = 48.0
+bbcode_enabled = true
+text = "[wave][center] Dia Atual: 15 [center][wave]"
+
+[node name="Introduction" parent="CanvasLayer/MainUI" instance=ExtResource("11_t1xbi")]
+layout_mode = 1
+
+[connection signal="pressed" from="CanvasLayer/MainUI/EndDay" to="." method="_on_end_day_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainUI/EndTurn" to="." method="_on_end_turn_pressed"]

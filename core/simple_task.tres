@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://dj650dldbi26h"]
+
+[ext_resource type="Texture2D" uid="uid://dcwi30ohjtux0" path="res://third_party_assets/Cards/dum_task.png" id="1_7nfk4"]
+[ext_resource type="Script" path="res://core/CardResource.gd" id="1_lt2j8"]
+
+[resource]
+script = ExtResource("1_lt2j8")
+display_name = "Atividade simples"
+stress_gain = -15.0
+productivity_gain = -10.0
+image = ExtResource("1_7nfk4")

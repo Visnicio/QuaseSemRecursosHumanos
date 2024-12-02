@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://bed88653jg2ty"]
+
+[ext_resource type="Script" path="res://scenes/employee/employee.gd" id="1_isbsa"]
+[ext_resource type="Texture2D" uid="uid://dngocplu5pym4" path="res://third_party_assets/Cards/Card_Base_Plain_Grey.png" id="1_nq0ye"]
+[ext_resource type="Texture2D" uid="uid://xiypur2r4mhp" path="res://third_party_assets/Cards/Description_Area_Rectangle_Grey.png" id="2_lt4ug"]
+[ext_resource type="Texture2D" uid="uid://m3ub6d0gbllw" path="res://third_party_assets/Cards/Image_Area_Round.png" id="3_8v7mn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcdj5"]
+bg_color = Color(0.11, 0.11, 0.11, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkq40"]
+bg_color = Color(0, 0.584314, 0.913725, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1yaxn"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gc4r"]
+bg_color = Color(0.894118, 0.231373, 0.266667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jilt"]
+size = Vector2(112, 168)
+
+[sub_resource type="Animation" id="Animation_i76xg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmployeeDisplay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_20na3"]
+resource_name = "float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmployeeDisplay:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(-0.5, 1, -0.5, 1, -0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anivk"]
+_data = {
+"RESET": SubResource("Animation_i76xg"),
+"float": SubResource("Animation_20na3")
+}
+
+[node name="Employee" type="Node2D"]
+script = ExtResource("1_isbsa")
+
+[node name="EmployeeDisplay" type="TextureRect" parent="."]
+offset_right = 128.0
+offset_bottom = 184.0
+pivot_offset = Vector2(64, 88)
+texture = ExtResource("1_nq0ye")
+
+[node name="Description" type="TextureRect" parent="EmployeeDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lt4ug")
+
+[node name="Portrait" type="TextureRect" parent="EmployeeDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8v7mn")
+
+[node name="PortraitImage" type="TextureRect" parent="EmployeeDisplay/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8v7mn")
+
+[node name="Productivity" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_bottom = 184.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qcdj5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rkq40")
+value = 27.99
+fill_mode = 3
+show_percentage = false
+
+[node name="Stress" type="ProgressBar" parent="."]
+offset_left = 128.0
+offset_right = 144.0
+offset_bottom = 184.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1yaxn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3gc4r")
+value = 29.45
+fill_mode = 3
+show_percentage = false
+
+[node name="CardDetection" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDetection"]
+position = Vector2(64, 92)
+shape = SubResource("RectangleShape2D_8jilt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_anivk")
+}
+
+[node name="BlockedDisplay" type="Panel" parent="."]
+offset_right = 128.0
+offset_bottom = 184.0
